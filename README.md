@@ -4,10 +4,13 @@
 
 Before running the project, ensure you have the following installed:
 
-* PHP
+* PHP **8.3+**
 * Composer
-* Node.js & NPM
+* Node.js **20.19+**
+* NPM
 * MySQL (or compatible database)
+
+---
 
 ## Installation
 
@@ -68,7 +71,7 @@ This command will:
 * Create a default user account.
 * Generate 50 dummy tasks.
 
-> Note: Every time the seeder is executed, 50 additional dummy tasks will be created.
+> **Note:** Every time the seeder is executed, 50 additional dummy tasks will be created.
 
 ### Default User Credentials
 
@@ -81,12 +84,6 @@ This command will:
 
 ```bash
 npm install
-```
-
-or
-
-```bash
-npm i
 ```
 
 ### 9. Build Frontend Assets
@@ -103,8 +100,29 @@ npm run dev
 
 ### 10. Run Tests
 
+Run the test suite:
+
 ```bash
-php artisan test tests/
+php artisan test
+```
+
+#### SQLite Error During Testing
+
+If you receive an SQLite connection error while running tests, update the database settings in your `phpunit.xml` file:
+
+```xml
+<env name="DB_CONNECTION" value="mysql"/>
+<env name="DB_DATABASE" value="database_name"/>
+<env name="DB_HOST" value="127.0.0.1"/>
+<env name="DB_PORT" value="3306"/>
+<env name="DB_USERNAME" value="username"/>
+<env name="DB_PASSWORD" value="password"/>
+```
+
+Then rerun:
+
+```bash
+php artisan test
 ```
 
 ### 11. Start the Application
@@ -115,9 +133,11 @@ php artisan serve
 
 The application will be available at:
 
-```
+```text
 http://127.0.0.1:8000
 ```
+
+---
 
 ## Additional Commands
 
