@@ -104,7 +104,7 @@ npm run dev
 ### 10. Run Tests
 
 ```bash
-php artisan test
+php artisan test tests/
 ```
 
 ### 11. Start the Application
